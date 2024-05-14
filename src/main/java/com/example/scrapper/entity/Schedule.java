@@ -6,6 +6,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -29,4 +31,18 @@ public class Schedule {
 
     @Column
     private String schedule;
+
+    public List<LocalDate> calculateBetweenDate(){
+        List<LocalDate> dates = new ArrayList<>();
+        LocalDate start = this.startDate;
+
+        while (!start.equals(this.endDate)){
+            dates.add(start);
+            start = start.plusDays(1);
+        }
+
+        dates.add(endDate);
+
+        return dates;
+    }
 }

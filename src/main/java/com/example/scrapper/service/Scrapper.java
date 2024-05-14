@@ -44,6 +44,7 @@ public class Scrapper {
                     }
                 }
         );
+
     }
 
     public Schedule createSchedule(String date , String schedule, String year) {
